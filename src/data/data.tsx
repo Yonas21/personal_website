@@ -11,8 +11,6 @@ import {
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
-import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header-background.webp';
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
@@ -69,18 +67,18 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Tim Baker.`,
+  name: `I'm Yonas Alem.`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
+        I'm an Ethiopia based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently
+        working at <strong className="text-stone-100">Mereb Technologies</strong> helping build a modern, fast,
+        international Pocker Games that aims to emulate and modernize Las Vegas.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
+        In my free time time, you can catch me learning about  <strong className="text-stone-100">Cooking</strong>,<strong>Driving Simulators</strong>,
         plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
+        <strong className="text-stone-100">Working around King Goerge Street with my friends.</strong>.
       </p>
     </>
   ),
@@ -104,16 +102,14 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `I am Young Fullstack Developer, I live in Addis Ababa, Ethiopia, I am Currently Working at Mereb Technologies as Senior Software Engineer, a company Based in Addis Working on Outsourcing Project from USA,Europe and Canada, I am working Fullstack with React, Golang also PHP, I am really Interested to Know deeper into Swift Programming language, I am Laugh loving and fun to work with.`,
   aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    {label: 'Location', text: 'Addis Ababa, Ethiopia', Icon: MapIcon},
+    {label: 'Age', text: '26', Icon: CalendarIcon},
+    {label: 'Nationality', text: 'Ethiopian', Icon: FlagIcon},
+    {label: 'Interests', text: 'Driving, Playing Football, Hicking', Icon: SparklesIcon},
+    {label: 'Study', text: 'Addis Ababa University', Icon: AcademicCapIcon},
+    {label: 'Employment', text: 'Mereb Technologies PLC.', Icon: BuildingOffice2Icon},
   ],
 };
 
@@ -125,16 +121,12 @@ export const skills: SkillGroup[] = [
     name: 'Spoken languages',
     skills: [
       {
-        name: 'English',
+        name: 'Amharic',
         level: 10,
       },
       {
-        name: 'French',
-        level: 4,
-      },
-      {
-        name: 'Spanish',
-        level: 3,
+        name: 'English',
+        level: 8,
       },
     ],
   },
@@ -144,6 +136,10 @@ export const skills: SkillGroup[] = [
       {
         name: 'React',
         level: 9,
+      },
+      {
+        name: 'Angular',
+        level: 6,
       },
       {
         name: 'Typescript',
@@ -163,7 +159,7 @@ export const skills: SkillGroup[] = [
         level: 8,
       },
       {
-        name: 'Rust',
+        name: 'PHP',
         level: 5,
       },
       {
@@ -283,24 +279,46 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: 'April 2022 - Present',
+    location: 'Mereb Technologies',
+    title: 'Senior Software Engineer',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Working on Game Backend Api, Tuning the performance of Database Queries, writing testing and automation scripts,
+        Design and Implement Game Dashboard UI, also Integrate with API.
       </p>
     ),
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
+    date: 'February 2021 - April 2022',
+    location: 'EagleLion Systems Technology',
+    title: 'FrontEnd Developer',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Design and Implement Payment Dashboards, Promotional Websites, Company Websites, Integrate Systems to Api,
+        Change Html And Javascript Templates to React Templates, Writing Testcase for Acceptance Testers.
+      </p>
+    ),
+  },
+  {
+    date: 'January 2021 - June 2021',
+    location: 'Ethiopian Orthodox Church,ICT Center',
+    title: 'Junior Fullstack Developer',
+    content: (
+      <p>
+        Convert Figma Designs to Ui and Integrate to Backend using ReactQL and GraphQL Mutation. Working on Elearning
+        websites using moodle and add performance the Existing websites.
+      </p>
+    ),
+  },
+  {
+    date: 'February 2019 - September 2019',
+    location: 'Minister Of Science and Higher Education',
+    title: 'Acceptance Tester and Junior Backend Developer',
+    content: (
+      <p>
+        I have been Testing Existing Systems as end User and List out Major Bugs for Rework, Developing Apis for
+        Different Volunteer Systems.
       </p>
     ),
   },
@@ -340,23 +358,23 @@ export const contact: ContactSection = {
   items: [
     {
       type: ContactType.Email,
-      text: 'reachout@timbaker.me',
-      href: 'mailto:reachout@timbaker.me',
+      text: 'yonalem21@gmail.com',
+      href: 'mailto:yonalem21@gmail.com',
     },
     {
       type: ContactType.Location,
-      text: 'Victoria BC, Canada',
-      href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
+      text: 'Addis Ababa, Ethiopia',
+      href: 'https://goo.gl/maps/4g8LnHQBKiywgAEd6?coh=178573&entry=tt',
     },
     {
       type: ContactType.Instagram,
-      text: '@tbakerx',
-      href: 'https://www.instagram.com/tbakerx/',
+      text: '@its_yon_21',
+      href: 'https://www.instagram.com/its_yon_21/',
     },
     {
       type: ContactType.Github,
-      text: 'tbakerx',
-      href: 'https://github.com/tbakerx',
+      text: 'Yonas21',
+      href: 'https://github.com/Yonas21',
     },
   ],
 };
@@ -367,5 +385,5 @@ export const contact: ContactSection = {
 export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/Yonas21'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/yonasalem21/'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/tbakerx/'},
+  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/its_yon_21/'},
 ];
