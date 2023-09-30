@@ -42,8 +42,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  title: 'Yonas Alem',
+  description: 'Experienced Software Developer please Various experience Developing Web and Mobile Applications',
 };
 
 /**
@@ -71,14 +71,14 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm an Ethiopia based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently
-        working at <strong className="text-stone-100">Mereb Technologies</strong> helping build a modern, fast,
-        international Pocker Games that aims to emulate and modernize Las Vegas.
+        I'm <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working at{' '}
+        <strong className="text-stone-100">Mereb Technologies</strong> helping build a modern, fast, international
+        Pocker Games that aims to emulate and modernize Las Vegas Poker Game.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me learning about  <strong className="text-stone-100">Cooking</strong>,<strong>Driving Simulators</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Working around King Goerge Street with my friends.</strong>.
+        In my free time time, you can catch me learning about <strong className="text-stone-100">Cooking</strong>,
+        <strong>Driving Simulators</strong>, plucking my <strong className="text-stone-100">banjo</strong>, or exploring
+        beautiful <strong className="text-stone-100">Working around King Goerge Street with my friends.</strong>.
       </p>
     </>
   ),
@@ -135,19 +135,19 @@ export const skills: SkillGroup[] = [
     skills: [
       {
         name: 'React',
-        level: 9,
+        level: 10,
       },
       {
         name: 'Angular',
-        level: 6,
+        level: 8,
       },
       {
         name: 'Typescript',
-        level: 7,
+        level: 9,
       },
       {
         name: 'GraphQL',
-        level: 6,
+        level: 8,
       },
     ],
   },
@@ -156,15 +156,15 @@ export const skills: SkillGroup[] = [
     skills: [
       {
         name: 'Node.js',
-        level: 8,
+        level: 10,
       },
       {
         name: 'PHP',
-        level: 5,
+        level: 9,
       },
       {
         name: 'Golang',
-        level: 4,
+        level: 7,
       },
     ],
   },
@@ -177,11 +177,32 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Flutter',
-        level: 4,
+        level: 6,
       },
       {
         name: 'Swift',
-        level: 3,
+        level: 6,
+      },
+    ],
+  },
+  {
+    name: 'Version Control and Deployment',
+    skills: [
+      {
+        name: 'Git',
+        level: 9,
+      },
+      {
+        name: 'Bash Scripting',
+        level: 10,
+      },
+      {
+        name: 'Docker',
+        level: 10,
+      },
+      {
+        name: 'aws',
+        level: 9,
       },
     ],
   },
@@ -264,16 +285,19 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
-  },
-  {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'December 2020',
+    location: 'Addis Ababa University',
+    title: 'Bachelors in Software Engineering',
+    content: (
+      <p>
+        After Finishing Secondary School in 2015 I have Joined Addis Ababa University Technology Campus and Chose
+        Software Engineering as Major because I had very Attracted to Technology when I was a kid in Africa, so I have
+        Joined to Fullfil my Dream and it was a Pinpoint Match. After I joined I Learned Data Structure and Algorithms,
+        Software Development Lifecycles and Paradigms, Web and Mobile Application Development and Internet Security,
+        last but no least I have connected with very Talented Colleages, Friends and Instructors That have helped me
+        Progress after I graduated.
+      </p>
+    ),
   },
 ];
 

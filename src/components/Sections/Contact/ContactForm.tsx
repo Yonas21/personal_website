@@ -1,7 +1,6 @@
 import emailjs from 'emailjs-com';
 import {FC, memo, useCallback, useMemo, useState} from 'react';
 
-const {SERVICE_ID, TEMPLATE_ID, USER_ID} = process.env;
 interface FormData {
   from_name: string;
   from_email: string;

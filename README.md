@@ -1,6 +1,6 @@
-# React JS Resume Website Template
+# Yonas Alem Portofolio Website
 
-![ReactJS Resume Website Template](resume-screenshot.jpg?raw=true 'ReactJS Resume Website Template')
+![Yonas Alem Portofolio Website](resume-screenshot.jpg?raw=true 'ReactJS Resume Website Template')
 
 <div align="center">
 
