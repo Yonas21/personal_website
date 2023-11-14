@@ -69,9 +69,8 @@ export const heroData: Hero = {
         Pocker Games that aims to emulate and modernize Las Vegas Poker Game.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me learning about <strong className="text-stone-100">Cooking</strong>,
-        <strong>Driving Simulators</strong>, plucking my <strong className="text-stone-100">banjo</strong>, or exploring
-        beautiful <strong className="text-stone-100">Working around King Goerge Street with my friends.</strong>.
+        In my free time time, i use my time to learn more about <strong className="text-stone-100">Cooking</strong>,
+        <strong>Driving Simulators</strong> or exploring beautiful Gardens Around Addis Ababa.{' '}
       </p>
     </>
   ),
@@ -95,10 +94,10 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `I am Young Fullstack Developer, I live in Addis Ababa, Ethiopia, I am Currently Working at Mereb Technologies as Senior Software Engineer, a company Based in Addis Working on Outsourcing Project from USA,Europe and Canada, I am working Fullstack with React, Golang also PHP, I am really Interested to Know deeper into Swift Programming language, I am Laugh loving and fun to work with.`,
+  description: `I am Software Engineer with 5+ years of experience developing robust platforms for the Payment and gaming industries, Proven ability to deliver quality code Individually or in Collaboration with a team of any size, AWS Certified Cloud Practitioner, Skilled in DevOps practices, Committed to continuous learning and staying up-to-date with industry trends. `,
   aboutItems: [
     {label: 'Location', text: 'Addis Ababa, Ethiopia', Icon: MapIcon},
-    {label: 'Age', text: '26', Icon: CalendarIcon},
+    {label: 'Age', text: '27', Icon: CalendarIcon},
     {label: 'Nationality', text: 'Ethiopian', Icon: FlagIcon},
     {label: 'Interests', text: 'Driving, Playing Football, Hicking', Icon: SparklesIcon},
     {label: 'Study', text: 'Addis Ababa University', Icon: AcademicCapIcon},
@@ -132,7 +131,7 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Angular',
-        level: 8,
+        level: 9,
       },
       {
         name: 'Typescript',
@@ -140,7 +139,7 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'GraphQL',
-        level: 8,
+        level: 9,
       },
     ],
   },
@@ -157,7 +156,11 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Golang',
-        level: 7,
+        level: 9,
+      },
+      {
+        name: 'Python',
+        level: 10,
       },
     ],
   },
@@ -170,11 +173,11 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Flutter',
-        level: 6,
+        level: 8,
       },
       {
         name: 'Swift',
-        level: 6,
+        level: 8,
       },
     ],
   },
@@ -238,12 +241,12 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'December 2020',
+    date: 'June 2018',
     location: 'Addis Ababa University',
     title: 'Bachelors in Software Engineering',
     content: (
       <p>
-        After Finishing Secondary School in 2015 I have Joined Addis Ababa University Technology Campus and Chose
+        After Finishing Secondary School in 2013 I have Joined Addis Ababa University Technology Campus and Chose
         Software Engineering as Major because I had very Attracted to Technology when I was a kid in Africa, so I have
         Joined to Fullfil my Dream and it was a Pinpoint Match. After I joined I Learned Data Structure and Algorithms,
         Software Development Lifecycles and Paradigms, Web and Mobile Application Development and Internet Security,
@@ -256,7 +259,7 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
   {
-    date: 'April 2022 - Present',
+    date: 'April 2020 - Present',
     location: 'Mereb Technologies',
     title: 'Senior Software Engineer',
     content: (
@@ -267,7 +270,7 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: 'February 2021 - April 2022',
+    date: 'February 2019 - April 2020',
     location: 'EagleLion Systems Technology',
     title: 'FrontEnd Developer',
     content: (
@@ -278,7 +281,7 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: 'January 2021 - June 2021',
+    date: 'January 2019 - June 2019',
     location: 'Ethiopian Orthodox Church,ICT Center',
     title: 'Junior Fullstack Developer',
     content: (
@@ -289,9 +292,9 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: 'February 2019 - September 2019',
-    location: 'Minister Of Science and Higher Education',
-    title: 'Acceptance Tester and Junior Backend Developer',
+    date: 'February 2017 - September 2017',
+    location: 'Ethernet',
+    title: 'Backend Developer',
     content: (
       <p>
         I have been Testing Existing Systems as end User and List out Major Bugs for Rework, Developing Apis for
