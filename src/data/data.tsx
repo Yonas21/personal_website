@@ -147,6 +147,10 @@ export const skills: SkillGroup[] = [
     name: 'Backend development',
     skills: [
       {
+        name: 'Python',
+        level: 10,
+      },
+      {
         name: 'Node.js',
         level: 10,
       },
@@ -157,10 +161,6 @@ export const skills: SkillGroup[] = [
       {
         name: 'Golang',
         level: 9,
-      },
-      {
-        name: 'Python',
-        level: 10,
       },
     ],
   },
@@ -259,7 +259,7 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
   {
-    date: 'April 2020 - Present',
+    date: 'April 2021 - Present',
     location: 'Mereb Technologies',
     title: 'Senior Software Engineer',
     content: (
@@ -270,7 +270,18 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: 'February 2019 - April 2020',
+    date: 'February 2023 - August 2023',
+    location: 'affiliate.com(Remote)',
+    title: 'Fullstack Developer',
+    content: (
+      <p>
+        Changed PHP and Joomla based web system into Node.js, tRPC, React and Prisma new, improved and fast system with
+        very responsive design.
+      </p>
+    ),
+  },
+  {
+    date: 'February 2019 - April 2021',
     location: 'EagleLion Systems Technology',
     title: 'FrontEnd Developer',
     content: (
@@ -292,7 +303,7 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
-    date: 'February 2017 - September 2017',
+    date: 'February 2018 - July 2019',
     location: 'Ethernet',
     title: 'Backend Developer',
     content: (
