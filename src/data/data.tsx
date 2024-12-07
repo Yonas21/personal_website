@@ -324,6 +324,12 @@ export const testimonial: TestimonialSection = {
   imageSrc: testimonialImage,
   testimonials: [
     {
+      name: 'Dan Warner, AppLand Inc',
+      text: 'Yonas did a great job! I would work with him again on a larger project.',
+      image:
+        'https://www.upwork.com/profile-portraits/c1ef5lJdPX8B_DTfOEApW8C95Uk8Uuigz8wDm-4t4egEtli0qT6Q3PxVpuEIOeuJOW',
+    },
+    {
       name: 'Muly Oved',
       text: 'Excellent freelancer, dedicated, hard worker, was joy to work with, and will love to work with him again',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
@@ -332,6 +338,12 @@ export const testimonial: TestimonialSection = {
       name: 'Mekidem Getaneh',
       text: 'I have worked with Yonas for almost a year. He is a very good ReactJS developer with a diligent and patient personality. He goes above and beyond for solving a problem and to find optimal solutions and is well aquatinted with different libraries. I am sure anybody would find him very helpful and a delight to work with.',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
+    },
+    {
+      name: 'Kalvin',
+      text: 'Working with Yonas on the front-end development of our data analytics website was an outstanding experience. Yonas demonstrated exceptional expertise and creativity in bringing our vision to life with a clean, user-friendly interface that exceeded our expectations. His attention to detail, responsiveness to feedback, and proactive communication ensured a smooth and efficient development process. Yonas went above and beyond to implement innovative features that enhance user engagement and usability. We are incredibly impressed with the quality of his work and his dedication to delivering the best possible results. I highly recommend Yonas to anyone looking for a skilled and reliable front-end developer. His contribution has been invaluable, and we look forward to collaborating with him on future projects.',
+      image:
+        'https://www.upwork.com/profile-portraits/c1ef5lJdPX8B_DTfOEApW8C95Uk8Uuigz8wDm-4t4egEtli0qT6Q3PxVpuEIOeuJO',
     },
   ],
 };
