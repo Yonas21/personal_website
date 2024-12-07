@@ -2,7 +2,6 @@ import {
   AcademicCapIcon,
   ArrowDownTrayIcon,
   BuildingOffice2Icon,
-  CalendarIcon,
   FlagIcon,
   MapIcon,
   SparklesIcon,
@@ -16,7 +15,7 @@ import porfolioImage1 from '../images/portfolio/portfolio-1.png';
 import porfolioImage2 from '../images/portfolio/portfolio-2.png';
 import porfolioImage3 from '../images/portfolio/portfolio-3.png';
 import porfolioImage4 from '../images/portfolio/portfolio-4.webp';
-import profilepic from '../images/profilepic.jpg';
+import profilepic from '../images/profilepic.jpeg';
 import testimonialImage from '../images/testimonial.webp';
 import {
   About,
@@ -64,13 +63,16 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working at{' '}
-        <strong className="text-stone-100">Mereb Technologies</strong> helping build a modern, fast, international
-        Pocker Games that aims to emulate and modernize Las Vegas Poker Game.
+        I’m Yonas, a passionate <strong>Software Developer</strong> with expertise in crafting dynamic, scalable, and
+        user-friendly applications. With a strong foundation in <em>React</em>, <em> Next.js</em>, <em>Angular</em>,
+        <em>Node.js</em>, <em>PHP</em>, <em>Python</em>, and <em>AWS</em>, I specialize in building impactful solutions
+        that merge innovation with functionality. From developing robust management dashboards to enhancing mobile
+        applications with seamless API integrations, I excel at transforming complex challenges into simple, elegant
+        solutions.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         In my free time time, i use my time to learn more about <strong className="text-stone-100">Cooking</strong>,
-        <strong>Driving Simulators</strong> or exploring beautiful Gardens Around Addis Ababa.{' '}
+        <strong>Driving Simulators</strong> or Exploring Beautiful Gardens Around The City.{' '}
       </p>
     </>
   ),
@@ -94,14 +96,14 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `I am Software Engineer with 5+ years of experience developing robust platforms for the Payment and gaming industries, Proven ability to deliver quality code Individually or in Collaboration with a team of any size, AWS Certified Cloud Practitioner, Skilled in DevOps practices, Committed to continuous learning and staying up-to-date with industry trends. `,
+  description: `I’m a Software Developer with a passion for building dynamic, user-friendly, and scalable web applications. From sleek frontends to powerful backends, I bring ideas to life with modern tools and technologies.`,
   aboutItems: [
+    {label: 'Work Preference', text: 'Remote, Open to Relocation', Icon: MapIcon},
     {label: 'Location', text: 'Addis Ababa, Ethiopia', Icon: MapIcon},
-    {label: 'Age', text: '27', Icon: CalendarIcon},
     {label: 'Nationality', text: 'Ethiopian', Icon: FlagIcon},
     {label: 'Interests', text: 'Driving, Playing Football, Hicking', Icon: SparklesIcon},
     {label: 'Study', text: 'Addis Ababa University', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Mereb Technologies PLC.', Icon: BuildingOffice2Icon},
+    {label: 'Current Employment', text: 'Mereb Technologies PLC.', Icon: BuildingOffice2Icon},
   ],
 };
 
@@ -118,7 +120,7 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'English',
-        level: 8,
+        level: 9,
       },
     ],
   },
@@ -135,12 +137,12 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'Typescript',
-        level: 9,
+        level: 10,
       },
       {
         name: 'GraphQL',
-        level: 9,
-      },
+        level: 10,
+      }
     ],
   },
   {
@@ -156,7 +158,7 @@ export const skills: SkillGroup[] = [
       },
       {
         name: 'PHP',
-        level: 9,
+        level: 10,
       },
       {
         name: 'Golang',
@@ -169,7 +171,7 @@ export const skills: SkillGroup[] = [
     skills: [
       {
         name: 'React Native',
-        level: 9,
+        level: 10,
       },
       {
         name: 'Flutter',
@@ -186,7 +188,7 @@ export const skills: SkillGroup[] = [
     skills: [
       {
         name: 'Git',
-        level: 9,
+        level: 10,
       },
       {
         name: 'Bash Scripting',
@@ -197,7 +199,7 @@ export const skills: SkillGroup[] = [
         level: 10,
       },
       {
-        name: 'aws',
+        name: 'AWS',
         level: 9,
       },
     ],
