@@ -1,57 +1,88 @@
-import {ChevronDownIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
-import Image from 'next/image';
-import {FC, memo} from 'react';
+import {FC, memo, useCallback, useMemo, useState} from 'react';
 
 import {heroData, SectionId} from '../../data/data';
-import Section from '../Layout/Section';
+import {useNavObserver} from '../../hooks/useNavObserver';
 import Socials from '../Socials';
+import ThemeToggle from '../ThemeToggle';
+
+const navItems = [
+  {id: SectionId.About, label: 'About'},
+  {id: SectionId.Resume, label: 'Experience'},
+  {id: SectionId.Portfolio, label: 'Work'},
+  {id: SectionId.Contact, label: 'Contact'},
+] as const;
 
 const Hero: FC = memo(() => {
-  const {imageSrc, name, description, actions} = heroData;
+  const {name, title, description, actions} = heroData;
+  const [currentSection, setCurrentSection] = useState<SectionId | null>(SectionId.About);
+  const navSections = useMemo(() => navItems.map(item => item.id), []);
+
+  const intersectionHandler = useCallback((section: SectionId | null) => {
+    section && setCurrentSection(section);
+  }, []);
+
+  useNavObserver(navSections.map(section => `#${section}`).join(','), intersectionHandler);
 
   return (
-    <Section noPadding sectionId={SectionId.Hero}>
-      <div className="relative flex h-screen w-full items-center justify-center">
-        <Image
-          alt={`${name}-image`}
-          className="absolute z-0 h-full w-full object-cover"
-          placeholder="blur"
-          priority
-          src={imageSrc}
-        />
-        <div className="z-10  max-w-screen-lg px-4 lg:px-0">
-          <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 text-center shadow-lg backdrop-blur-sm">
-            <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">{name}</h1>
-            {description}
-            <div className="flex gap-x-4 text-neutral-100">
-              <Socials />
-            </div>
-            <div className="flex w-full justify-center gap-x-4">
-              {actions.map(({href, text, primary, Icon}) => (
-                <a
-                  className={classNames(
-                    'flex gap-x-2 rounded-full border-2 bg-none px-4 py-2 text-sm font-medium text-white ring-offset-gray-700/80 hover:bg-gray-700/80 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-base',
-                    primary ? 'border-orange-500 ring-orange-500' : 'border-white ring-white',
-                  )}
-                  href={href}
-                  key={text}>
-                  {text}
-                  {Icon && <Icon className="h-5 w-5 text-white sm:h-6 sm:w-6" />}
-                </a>
-              ))}
-            </div>
-          </div>
+    <aside
+      className="flex flex-col justify-between pt-28 lg:sticky lg:top-0 lg:max-h-screen lg:w-[42%] lg:py-24"
+      id={SectionId.Hero}>
+      <div>
+        <p className="font-mono text-xs tracking-[0.28em] text-accent">BACKEND & FULL STACK SYSTEMS</p>
+        <h1 className="mt-4 font-serif text-5xl leading-tight text-fg sm:text-6xl">{name}</h1>
+        <p className="mt-3 text-lg text-fg-muted">{title}</p>
+        <p className="mt-6 max-w-md text-base leading-relaxed text-fg-muted">{description}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          {actions.map(({href, text, primary, download, Icon}) => (
+            <a
+              className={classNames(
+                'inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors',
+                primary
+                  ? 'bg-accent text-accent-fg hover:bg-accent-hover'
+                  : 'bg-elevated text-fg ring-1 ring-inset ring-line/25 hover:text-accent hover:ring-accent/40',
+              )}
+              download={download}
+              href={href}
+              key={text}>
+              {text}
+              {Icon && <Icon className="h-4 w-4" />}
+            </a>
+          ))}
         </div>
-        <div className="absolute inset-x-0 bottom-6 flex justify-center">
-          <a
-            className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
-            href={`/#${SectionId.About}`}>
-            <ChevronDownIcon className="h-5 w-5 bg-transparent sm:h-6 sm:w-6" />
-          </a>
-        </div>
+        <nav aria-label="Primary" className="mt-14 hidden lg:block">
+          <ul className="flex flex-col gap-4">
+            {navItems.map(item => {
+              const current = item.id === currentSection;
+              return (
+                <li key={item.id}>
+                  <a
+                    className={classNames(
+                      'group flex items-center gap-4 font-mono text-xs tracking-[0.22em]',
+                      current ? 'text-fg' : 'text-fg-subtle hover:text-fg',
+                    )}
+                    href={`/#${item.id}`}>
+                    <span
+                      className={classNames(
+                        'h-px bg-current transition-all duration-300',
+                        current ? 'w-12' : 'w-6 group-hover:w-10',
+                      )}
+                    />
+                    {item.label.toUpperCase()}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
       </div>
-    </Section>
+      <div className="mt-12 flex items-center justify-between gap-4 pb-8 text-fg-muted lg:mt-0 lg:pb-0">
+        <div className="flex items-center gap-1">
+          <Socials />
+        </div>
+        <ThemeToggle className="hidden lg:inline-flex" />
+      </div>
+    </aside>
   );
 });
 

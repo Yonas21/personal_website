@@ -2,31 +2,32 @@ import {FC, memo} from 'react';
 
 import {education, experience, SectionId, skills} from '../../../data/data';
 import Section from '../../Layout/Section';
+import SectionHeading from '../../SectionHeading';
 import ResumeSection from './ResumeSection';
 import {SkillGroup} from './Skills';
 import TimelineItem from './TimelineItem';
 
 const Resume: FC = memo(() => {
   return (
-    <Section className="bg-neutral-100" sectionId={SectionId.Resume}>
-      <div className="flex flex-col divide-y-2 divide-neutral-300">
-        <ResumeSection title="Education">
-          {education.map((item, index) => (
-            <TimelineItem item={item} key={`${item.title}-${index}`} />
-          ))}
-        </ResumeSection>
+    <Section className="scroll-mt-28" sectionId={SectionId.Resume}>
+      <SectionHeading index="02" title="Experience" />
+      <div className="flex flex-col gap-16">
         <ResumeSection title="Work">
           {experience.map((item, index) => (
             <TimelineItem item={item} key={`${item.title}-${index}`} />
           ))}
         </ResumeSection>
         <ResumeSection title="Skills">
-          <p className="pb-8">Here are Some Languages and Frameworks, I have been Working With.</p>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             {skills.map((skillgroup, index) => (
               <SkillGroup key={`${skillgroup.name}-${index}`} skillGroup={skillgroup} />
             ))}
           </div>
+        </ResumeSection>
+        <ResumeSection title="Education">
+          {education.map((item, index) => (
+            <TimelineItem item={item} key={`${item.title}-${index}`} />
+          ))}
         </ResumeSection>
       </div>
     </Section>

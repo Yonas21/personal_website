@@ -1,84 +1,73 @@
-import {ArrowTopRightOnSquareIcon} from '@heroicons/react/24/outline';
-import classNames from 'classnames';
+import {ArrowUpRightIcon} from '@heroicons/react/24/outline';
 import Image from 'next/image';
-import {FC, memo, MouseEvent, useCallback, useEffect, useRef, useState} from 'react';
+import {FC, memo} from 'react';
 
-import {isMobile} from '../../config';
 import {portfolioItems, SectionId} from '../../data/data';
 import {PortfolioItem} from '../../data/dataDef';
-import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 import Section from '../Layout/Section';
+import SectionHeading from '../SectionHeading';
+import TechPills from '../TechPills';
 
 const Portfolio: FC = memo(() => {
   return (
-    <Section className="bg-neutral-800" sectionId={SectionId.Portfolio}>
-      <div className="flex flex-col gap-y-8">
-        <h2 className="self-center text-xl font-bold text-white">Check out some of my work</h2>
-        <div className=" w-full columns-2 md:columns-3 lg:columns-4">
-          {portfolioItems.map((item, index) => {
-            const {title, image} = item;
-            return (
-              <div className="pb-6" key={`${title}-${index}`}>
-                <div
-                  className={classNames(
-                    'relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl',
-                  )}>
-                  <Image alt={title} className="h-full w-full" placeholder="blur" src={image} />
-                  <ItemOverlay item={item} />
-                </div>
-              </div>
-            );
-          })}
-        </div>
+    <Section className="scroll-mt-28" sectionId={SectionId.Portfolio}>
+      <SectionHeading index="03" title="Selected work" />
+      <div className="flex flex-col gap-6">
+        {portfolioItems.map((item, index) => (
+          <ProjectCard item={item} key={`${item.title}-${index}`} />
+        ))}
       </div>
     </Section>
   );
 });
 
+const ProjectCard: FC<{item: PortfolioItem}> = memo(({item}) => {
+  const {title, subtitle, description, highlights, url, image, technologies} = item;
+
+  const body = (
+    <>
+      {image && (
+        <div className="mb-5 overflow-hidden rounded-xl">
+          <Image alt={title} className="h-40 w-full object-cover" placeholder="blur" src={image} />
+        </div>
+      )}
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="font-mono text-[11px] tracking-wide text-accent">{subtitle}</p>
+          <h3 className="mt-1 font-serif text-2xl text-fg group-hover:text-accent-hover">{title}</h3>
+        </div>
+        {url && <ArrowUpRightIcon className="mt-1 h-4 w-4 shrink-0 text-fg-subtle group-hover:text-accent-hover" />}
+      </div>
+      <p className="mt-3 text-sm leading-relaxed text-fg-muted">{description}</p>
+      {highlights && highlights.length > 0 && (
+        <ul className="mt-4 space-y-2 text-sm text-fg-muted">
+          {highlights.map(highlight => (
+            <li className="flex gap-2" key={highlight}>
+              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+              <span>{highlight}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className="mt-5">
+        <TechPills items={technologies} />
+      </div>
+    </>
+  );
+
+  const cardClassName =
+    'group block rounded-2xl border border-line/10 bg-elevated/90 p-6 transition-colors hover:border-accent/20 hover:bg-surface/80';
+
+  if (url) {
+    return (
+      <a className={cardClassName} href={url} rel="noreferrer" target="_blank">
+        {body}
+      </a>
+    );
+  }
+
+  return <article className={cardClassName}>{body}</article>;
+});
+
 Portfolio.displayName = 'Portfolio';
 export default Portfolio;
-
-const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {url, title, description}}) => {
-  const [mobile, setMobile] = useState(false);
-  const [showOverlay, setShowOverlay] = useState(false);
-  const linkRef = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    // Avoid hydration styling errors by setting mobile in useEffect
-    if (isMobile) {
-      setMobile(true);
-    }
-  }, []);
-  useDetectOutsideClick(linkRef, () => setShowOverlay(false));
-
-  const handleItemClick = useCallback(
-    (event: MouseEvent<HTMLElement>) => {
-      if (mobile && !showOverlay) {
-        event.preventDefault();
-        setShowOverlay(!showOverlay);
-      }
-    },
-    [mobile, showOverlay],
-  );
-
-  return (
-    <a
-      className={classNames(
-        'absolute inset-0 h-full w-full  bg-gray-900 transition-all duration-300',
-        {'opacity-0 hover:opacity-80': !mobile},
-        showOverlay ? 'opacity-80' : 'opacity-0',
-      )}
-      href={url}
-      onClick={handleItemClick}
-      ref={linkRef}
-      target="_blank">
-      <div className="relative h-full w-full p-4">
-        <div className="flex h-full w-full flex-col gap-y-2 overflow-y-auto overscroll-contain">
-          <h2 className="text-center font-bold text-white opacity-100">{title}</h2>
-          <p className="text-xs text-white opacity-100 sm:text-sm">{description}</p>
-        </div>
-        <ArrowTopRightOnSquareIcon className="absolute bottom-1 right-1 h-4 w-4 shrink-0 text-white sm:bottom-2 sm:right-2" />
-      </div>
-    </a>
-  );
-});

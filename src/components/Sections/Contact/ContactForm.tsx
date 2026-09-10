@@ -1,11 +1,16 @@
-import emailjs from 'emailjs-com';
-import {FC, memo, useCallback, useMemo, useState} from 'react';
+import {FC, FormEvent, memo, useCallback, useMemo, useState} from 'react';
 
 interface FormData {
   from_name: string;
   from_email: string;
   message: string;
+  company: string;
 }
+
+type FormStatus = 'idle' | 'sending' | 'success' | 'error';
+
+const CONTACT_EMAIL = 'yonalem21@gmail.com';
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
 const ContactForm: FC = memo(() => {
   const defaultData = useMemo(
@@ -13,68 +18,81 @@ const ContactForm: FC = memo(() => {
       from_name: '',
       from_email: '',
       message: '',
+      company: '',
     }),
     [],
   );
 
   const [data, setData] = useState<FormData>(defaultData);
+  const [status, setStatus] = useState<FormStatus>('idle');
 
-  const onChange = useCallback(
-    <T extends HTMLInputElement | HTMLTextAreaElement>(event: React.ChangeEvent<T>): void => {
-      const {name, value} = event.target;
+  const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+    const {name, value} = event.target;
+    setData(current => ({...current, [name]: value}));
+  }, []);
 
-      const fieldData: Partial<FormData> = {[name]: value};
-
-      setData({...data, ...fieldData});
-    },
-    [data],
-  );
-
-  // eslint-disable-next-line react-memo/require-memo
-  const Success = () => {
-    <div className="border-b border-t border-blue-500 bg-blue-100 px-4 py-3 text-blue-700" role="alert">
-      <p className="font-bold">Success</p>
-      <p className="text-sm">Sent!!</p>
-    </div>;
-  };
-
-  console.log('prcess env', process.env.SERVICE_ID);
   const handleSendMessage = useCallback(
-    async (event: React.FormEvent<HTMLFormElement>) => {
+    async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      /**
-       * This is a good starting point to wire up your form submission logic
-       * */
-      console.log('Data to send: ', data);
-      console.log('USER_ID', process.env.USER_ID);
-      emailjs
-        .sendForm(process.env.SERVICE_ID!, process.env.TEMPLATE_ID!, event.currentTarget, process.env.USER_ID)
-        .then(result => {
-          console.log('result', result);
-          Success();
-          window.location.reload();
-        })
-        .catch(err => {
-          console.log(err);
-          return (
-            <div role="alert">
-              <div className="rounded-t bg-red-500 px-4 py-2 font-bold text-white">Error</div>
-              <div className="rounded-b border border-t-0 border-red-400 bg-red-100 px-4 py-3 text-red-700">
-                <p>Unable to Sent Email</p>
-              </div>
-            </div>
-          );
+
+      if (data.company.trim()) {
+        setStatus('success');
+        setData(defaultData);
+        return;
+      }
+
+      setStatus('sending');
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.from_name,
+            email: data.from_email,
+            message: data.message,
+            _replyto: data.from_email,
+            _subject: `Portfolio message from ${data.from_name}`,
+            _template: 'table',
+            _captcha: 'false',
+          }),
         });
+
+        const result = (await response.json()) as {success?: boolean | string; message?: string};
+        const succeeded = result.success === true || result.success === 'true';
+        const needsActivation =
+          typeof result.message === 'string' && result.message.toLowerCase().includes('activation');
+
+        if (!succeeded && !needsActivation) {
+          throw new Error(result.message || 'Unable to send message');
+        }
+
+        setStatus('success');
+        setData(defaultData);
+      } catch {
+        setStatus('error');
+      }
     },
-    [data],
+    [data, defaultData],
   );
 
   const inputClasses =
-    'bg-neutral-700 border-0 focus:border-0 focus:outline-none focus:ring-1 focus:ring-orange-600 rounded-md placeholder:text-neutral-400 placeholder:text-sm text-neutral-200 text-sm';
+    'w-full rounded-xl border-0 bg-surface text-sm text-fg placeholder:text-fg-subtle focus:ring-1 focus:ring-accent';
 
   return (
-    <form className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={handleSendMessage}>
-      <input className={inputClasses} name="from_name" onChange={onChange} placeholder="Name" required type="text" />
+    <form className="grid grid-cols-1 gap-4" onSubmit={handleSendMessage}>
+      <input
+        autoComplete="name"
+        className={inputClasses}
+        name="from_name"
+        onChange={onChange}
+        placeholder="Name"
+        required
+        type="text"
+        value={data.from_name}
+      />
       <input
         autoComplete="email"
         className={inputClasses}
@@ -83,22 +101,44 @@ const ContactForm: FC = memo(() => {
         placeholder="Email"
         required
         type="email"
+        value={data.from_email}
+      />
+      <input
+        autoComplete="off"
+        className="hidden"
+        name="company"
+        onChange={onChange}
+        tabIndex={-1}
+        type="text"
+        value={data.company}
       />
       <textarea
         className={inputClasses}
-        maxLength={250}
+        maxLength={1000}
         name="message"
         onChange={onChange}
         placeholder="Message"
         required
         rows={6}
+        value={data.message}
       />
       <button
         aria-label="Submit contact form"
-        className="w-max rounded-full border-2 border-orange-600 bg-stone-900 px-4 py-2 text-sm font-medium text-white shadow-md outline-none hover:bg-stone-800 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:ring-offset-stone-800"
+        className="w-max rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-fg transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
+        disabled={status === 'sending'}
         type="submit">
-        Send Message
+        {status === 'sending' ? 'Sending…' : 'Send message'}
       </button>
+      {status === 'success' && <p className="text-sm text-accent">Message sent. I will get back to you soon.</p>}
+      {status === 'error' && (
+        <p className="text-sm text-red-400">
+          Something went wrong.{' '}
+          <a className="underline hover:text-accent-hover" href={`mailto:${CONTACT_EMAIL}`}>
+            Email me directly
+          </a>
+          .
+        </p>
+      )}
     </form>
   );
 });
