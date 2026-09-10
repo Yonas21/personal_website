@@ -1,15 +1,15 @@
 {
-  "name": "react-resume-template",
+  "name": "yonas-alem",
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "build": "yarn compile && yarn next build",
+    "build": "next build",
     "clean": "rm -rf build-tsc .next",
-    "compile": "yarn run -T tsc --build --verbose",
-    "dev": "yarn compile && yarn next dev",
-    "lint": "yarn run -T prettier --write './src/**/*.{js,jsx,json,ts,tsx}' && eslint './src/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0",
-    "start": "yarn next start",
-    "sitemap": "yarn next-sitemap"
+    "compile": "tsc --noEmit",
+    "dev": "next dev",
+    "lint": "prettier --write './src/**/*.{js,jsx,json,ts,tsx}' && eslint './src/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0",
+    "start": "next start",
+    "sitemap": "next-sitemap"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
@@ -58,8 +58,5 @@
     "stylelint-prettier": "^3.0.0",
     "tailwindcss": "^3.3.2",
     "typescript": "5.0.4"
-  },
-  "resolutions": {
-    "autoprefixer": "10.4.5"
   }
 }

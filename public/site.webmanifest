@@ -1,11 +1,10 @@
 {
-  "name": "react-resume-template",
-  "short_name": "react-resume-template",
+  "name": "Yonas Alem",
+  "short_name": "Yonas Alem",
   "icons": [
-    {"src": "/icon-192.png", "type": "image/png", "sizes": "192x192"},
-    {"src": "/icon-512.png", "type": "image/png", "sizes": "512x512"}
+    {"src": "/favicon.ico", "type": "image/x-icon", "sizes": "48x48"}
   ],
-  "theme_color": "#515455",
-  "background_color": "#515455",
+  "theme_color": "#07080b",
+  "background_color": "#07080b",
   "display": "standalone"
 }
