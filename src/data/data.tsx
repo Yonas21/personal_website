@@ -1,22 +1,10 @@
-import {
-  AcademicCapIcon,
-  ArrowDownTrayIcon,
-  BuildingOffice2Icon,
-  FlagIcon,
-  MapIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline';
+import {AcademicCapIcon, ArrowDownTrayIcon, BuildingOffice2Icon, MapIcon, SparklesIcon} from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import heroImage from '../images/header-background.webp';
-import porfolioImage1 from '../images/portfolio/portfolio-1.png';
-import porfolioImage2 from '../images/portfolio/portfolio-2.png';
-import porfolioImage3 from '../images/portfolio/portfolio-3.png';
 import porfolioImage4 from '../images/portfolio/portfolio-4.webp';
 import profilepic from '../images/profilepic.jpg';
-import testimonialImage from '../images/testimonial.webp';
 import {
   About,
   ContactSection,
@@ -34,8 +22,9 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Yonas Alem',
-  description: 'Experienced Software Developer please Various experience Developing Web and Mobile Applications',
+  title: 'Yonas Alem — Senior Software Engineer',
+  description:
+    'Senior software engineer in Addis Ababa, open to remote. Backend and full stack systems across payments, gaming, ecommerce, advertising, and government services.',
 };
 
 /**
@@ -58,22 +47,12 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  * Hero section
  */
 export const heroData: Hero = {
-  imageSrc: heroImage,
-  name: `I'm Yonas Alem.`,
+  name: 'Yonas Alem',
+  title: 'Senior Software Engineer',
   description: (
     <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I’m Yonas, a passionate <strong>Software Developer</strong> with expertise in crafting dynamic, scalable, and
-        user-friendly applications. With a strong foundation in <em>React</em>, <em> Next.js</em>, <em>Angular</em>,
-        <em>Node.js</em>, <em>PHP</em>, <em>Python</em>, and <em>AWS</em>, I specialize in building impactful solutions
-        that merge innovation with functionality. From developing robust management dashboards to enhancing mobile
-        applications with seamless API integrations, I excel at transforming complex challenges into simple, elegant
-        solutions.
-      </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, i use my time to learn more about <strong className="text-stone-100">Cooking</strong>,
-        <strong>Driving Simulators</strong> or Exploring Beautiful Gardens Around The City.{' '}
-      </p>
+      I build and fix production systems across payments, gaming, ecommerce, advertising, and government services —
+      from PostgreSQL and backend services through React, AWS, and the last mile of production debugging.
     </>
   ),
   actions: [
@@ -81,6 +60,7 @@ export const heroData: Hero = {
       href: '/assets/resume.pdf',
       text: 'Resume',
       primary: true,
+      download: 'Yonas_Alem_Software_Engineer_Resume.pdf',
       Icon: ArrowDownTrayIcon,
     },
     {
@@ -96,14 +76,32 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `I’m a Software Developer with a passion for building dynamic, user-friendly, and scalable web applications. From sleek frontends to powerful backends, I bring ideas to life with modern tools and technologies.`,
+  description: (
+    <>
+      <p>
+        I am a senior software engineer with 5+ years shipping production software where reliability, cost, and
+        correctness actually matter. I have cut infrastructure spend by about 35% (roughly $100K a year), improved
+        platform performance around 30%, and integrated payment rails that have handled more than 3 billion ETB in
+        transaction volume.
+      </p>
+      <p>
+        Day to day I work across the stack: schema design, APIs, React frontends, AWS infrastructure, and the kind of
+        production debugging that starts with a silent failure and ends with a safer system. I am based in Addis Ababa
+        and open to remote roles.
+      </p>
+    </>
+  ),
+  stats: [
+    {value: '5+', label: 'Years in production'},
+    {value: '35%', label: 'Infra cost reduced'},
+    {value: '~30%', label: 'Performance gain'},
+    {value: '3B+', label: 'ETB payment volume'},
+  ],
   aboutItems: [
-    {label: 'Work Preference', text: 'Remote, Open to Relocation', Icon: MapIcon},
     {label: 'Location', text: 'Addis Ababa, Ethiopia', Icon: MapIcon},
-    {label: 'Nationality', text: 'Ethiopian', Icon: FlagIcon},
-    {label: 'Interests', text: 'Driving, Playing Football, Hicking', Icon: SparklesIcon},
+    {label: 'Availability', text: 'Open to remote', Icon: BuildingOffice2Icon},
+    {label: 'Currently', text: 'TPK Synergy Limited', Icon: SparklesIcon},
     {label: 'Study', text: 'Addis Ababa University', Icon: AcademicCapIcon},
-    {label: 'Current Employment', text: 'Mereb Technologies PLC.', Icon: BuildingOffice2Icon},
   ],
 };
 
@@ -112,97 +110,28 @@ export const aboutData: About = {
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'Spoken languages',
-    skills: [
-      {
-        name: 'Amharic',
-        level: 10,
-      },
-      {
-        name: 'English',
-        level: 9,
-      },
-    ],
+    name: 'Languages',
+    skills: ['TypeScript', 'JavaScript', 'Go', 'Python', 'PHP', 'SQL'],
   },
   {
-    name: 'Frontend development',
-    skills: [
-      {
-        name: 'React',
-        level: 10,
-      },
-      {
-        name: 'Angular',
-        level: 9,
-      },
-      {
-        name: 'Typescript',
-        level: 10,
-      },
-      {
-        name: 'GraphQL',
-        level: 10,
-      }
-    ],
+    name: 'Backend',
+    skills: ['Node.js', 'Express', 'FastAPI', 'Prisma', 'gRPC', 'tRPC', 'REST', 'BullMQ'],
   },
   {
-    name: 'Backend development',
-    skills: [
-      {
-        name: 'Python',
-        level: 10,
-      },
-      {
-        name: 'Node.js',
-        level: 10,
-      },
-      {
-        name: 'PHP',
-        level: 10,
-      },
-      {
-        name: 'Golang',
-        level: 9,
-      },
-    ],
+    name: 'Data',
+    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis'],
   },
   {
-    name: 'Mobile development',
-    skills: [
-      {
-        name: 'React Native',
-        level: 10,
-      },
-      {
-        name: 'Flutter',
-        level: 8,
-      },
-      {
-        name: 'Swift',
-        level: 8,
-      },
-    ],
+    name: 'Frontend',
+    skills: ['React', 'Next.js', 'Tailwind CSS', 'Material UI'],
   },
   {
-    name: 'Version Control and Deployment',
-    skills: [
-      {
-        name: 'Git',
-        level: 10,
-      },
-      {
-        name: 'Bash Scripting',
-        level: 10,
-      },
-      {
-        name: 'Docker',
-        level: 10,
-      },
-      {
-        name: 'AWS',
-        level: 9,
-      },
-    ],
+    name: 'Cloud & DevOps',
+    skills: ['AWS (EC2, S3, Lambda)', 'Docker', 'Kubernetes', 'Nginx', 'GitHub Actions', 'CI/CD', 'Datadog', 'CloudWatch'],
+  },
+  {
+    name: 'Integrations',
+    skills: ['Amazon SP-API', 'Amazon Ads API', 'Mastercard', 'Visa', 'Telebirr', 'OAuth 2.0', 'OpenAI', 'Gemini'],
   },
 ];
 
@@ -211,49 +140,75 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'GetRooms.com',
+    title: 'Amazon seller analytics platform',
+    subtitle: 'TPK Synergy Limited',
     description:
-      'Online Hotel Booking Systems that aims to transform end-end booking experience from booking, Payment and Stays',
-    url: 'https://www.getroomsonline.com',
-    image: porfolioImage1,
+      'Marketplace analytics covering FBA, finance, PPC, and inventory. I own production reliability, Amazon integrations, and the data path behind the dashboard.',
+    highlights: [
+      'Traced recurring sync jobs that silently died after every deploy, then added explicit shutdown handling across 17 cron processes.',
+      'Integrated Amazon SP-API and Ads authentication end to end, including OAuth, LWA token exchange, and encrypted credential storage.',
+      'Extended the platform to UK and EU marketplaces with VAT-aware margins and region-specific marketplace logic.',
+    ],
+    technologies: ['Node.js', 'PostgreSQL', 'BullMQ', 'Redis', 'Amazon SP-API', 'Railway'],
   },
   {
-    title: 'Eaglelion Systems Technology Company Website',
-    description: 'Gives a Glance about the company and what solutions provided',
-    url: 'https://eaglelionsystems.com',
-    image: porfolioImage2,
-  },
-  {
-    title: 'GetRooms & Getfee Regstrations',
-    description: 'Registration Website for Hotels and Resorts to Automate Booking.',
-    url: 'https://getrooms.me',
-    image: porfolioImage3,
-  },
-  {
-    title: 'Nedaj',
+    title: 'Real-money gaming platform',
+    subtitle: 'Mereb Technologies',
     description:
-      'Nedaj is a cutting-edge electronic payment system to make fuel purchase and payment quick, easy, and joyful. It is a futuristic mobile application for Android and iOS smartphones developed to give a seamless experience for both the drivers and the pumpstations.',
+      'End-to-end ownership of a production gaming platform: loyalty, payouts, fraud, reporting, and the infrastructure underneath it.',
+    highlights: [
+      'Improved platform performance about 30% through indexing, read/write separation, caching, pagination, and a redesigned status-checking system.',
+      'Reduced infrastructure costs about 35%, an estimated $100K per year.',
+      'Cut report generation on ~1 million record datasets from 2 hours to under 30 minutes.',
+    ],
+    technologies: ['PHP', 'gRPC', 'PostgreSQL', 'Redis', 'AWS', 'Datadog', 'React'],
+  },
+  {
+    title: 'Government constituent platform',
+    subtitle: 'Autobridge Systems',
+    description:
+      'Backend for complaints, document approvals, and internal communication, with access control and encryption around sensitive constituent data.',
+    highlights: [
+      'Traced multi-minute slowdowns on incoming email records to missing indexes and improved those operations by more than 10x.',
+      'Integrated AI services for threat detection and message classification in communication workflows.',
+    ],
+    technologies: ['PostgreSQL', 'Node.js', 'Encryption', 'AI classification'],
+  },
+  {
+    title: 'Upplai',
+    subtitle: 'AI-powered resume platform',
+    description:
+      'Resume generation, cover letters, and ATS feedback using OpenAI and Gemini, with scoring, document preview, and per-resume cost tracking.',
+    highlights: [
+      'Supported 500+ user profiles across generation and feedback workflows.',
+      'Made model usage and spend visible per generation so cost did not disappear into a shared bill.',
+    ],
+    technologies: ['React', 'Node.js', 'OpenAI', 'Gemini'],
+  },
+  {
+    title: 'Nedaj payments',
+    subtitle: 'Eaglelion Systems Technology',
+    description:
+      'Payment workflows for a fuel-purchase product used by 100K+ downloads, integrating Mastercard, Visa, Telebirr, and commercial bank APIs.',
     url: 'https://play.google.com/store/apps/details?id=com.eaglelionsystems.nedaj',
     image: porfolioImage4,
+    technologies: ['React', 'Next.js', 'REST', 'Payment APIs'],
   },
 ];
 
 /**
- * Resume section -- TODO: Standardize resume contact format or offer MDX
+ * Resume section
  */
 export const education: TimelineItem[] = [
   {
-    date: 'June 2018',
-    location: 'Addis Ababa University',
-    title: 'Bachelors in Software Engineering',
+    date: 'Capstone: distributed system for real-time data processing',
+    company: 'Addis Ababa University',
+    location: 'Addis Ababa, Ethiopia',
+    title: 'BSc in Software Engineering',
     content: (
       <p>
-        After Finishing Secondary School in 2013 I have Joined Addis Ababa University Technology Campus and Chose
-        Software Engineering as Major because I had very Attracted to Technology when I was a kid in Africa, so I have
-        Joined to Fullfil my Dream and it was a Pinpoint Match. After I joined I Learned Data Structure and Algorithms,
-        Software Development Lifecycles and Paradigms, Web and Mobile Application Development and Internet Security,
-        last but no least I have connected with very Talented Colleages, Friends and Instructors That have helped me
-        Progress after I graduated.
+        Undergraduate work in data structures, software lifecycle and architecture, web and mobile development, and
+        internet security. AWS Certified Cloud Practitioner.
       </p>
     ),
   },
@@ -261,58 +216,128 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
   {
-    date: 'April 2021 - Present',
-    location: 'Mereb Technologies',
+    date: 'December 2025 – Present',
+    company: 'TPK Synergy Limited',
+    location: 'Remote',
+    title: 'Senior Full Stack Engineer',
+    technologies: ['Node.js', 'PostgreSQL', 'BullMQ', 'Redis', 'React', 'Amazon SP-API'],
+    content: (
+      <ul>
+        <li>
+          Amazon seller analytics covering marketplace analytics, FBA, finance, PPC, and inventory.
+        </li>
+        <li>
+          Diagnosed a production failure where recurring sync jobs silently stopped after each deploy; traced it through
+          BullMQ job state, ioredis connections, Node.js process lifecycle, and Railway scheduler behavior, then added
+          explicit shutdown handling across 17 cron processes.
+        </li>
+        <li>
+          Integrated Amazon SP-API and Amazon Ads authentication end to end: OAuth, LWA token exchange, credential
+          management, onboarding state, and encrypted credential storage.
+        </li>
+        <li>
+          Extended the platform to UK and EU marketplaces by threading marketplace and currency context through every
+          service, including VAT-aware margin calculations.
+        </li>
+        <li>
+          Cut dashboard load times by moving expensive aggregations from application code into SQL and removing
+          duplicate database queries.
+        </li>
+        <li>
+          Replaced a drifting migration history with an idempotent, additive migration process after finding the
+          production schema out of sync with the repository.
+        </li>
+        <li>
+          Corrected financial and inventory figures by sourcing fees and costs from authoritative Amazon endpoints
+          instead of incomplete downstream records.
+        </li>
+      </ul>
+    ),
+  },
+  {
+    date: 'April 2022 – November 2025',
+    company: 'Mereb Technologies',
+    location: 'Addis Ababa, Ethiopia',
     title: 'Senior Software Engineer',
+    technologies: ['PostgreSQL', 'gRPC', 'PHP', 'React', 'AWS', 'Datadog'],
     content: (
-      <p>
-        Working on Game Backend Api, Tuning the performance of Database Queries, writing testing and automation scripts,
-        Design and Implement Game Dashboard UI, also Integrate with API.
-      </p>
+      <ul>
+        <li>
+          Owned a production real-money gaming platform end to end: loyalty, payouts, fraud, and reporting.
+        </li>
+        <li>
+          Improved platform performance ~30% through database indexing, read/write separation, system-wide caching,
+          pagination, transactional operations, and a redesign of the status-checking system.
+        </li>
+        <li>Reduced infrastructure costs ~35%, an estimated $100K per year, through database, caching, and resource optimization.</li>
+        <li>
+          Cut report generation on ~1 million record datasets from 2 hours to under 30 minutes by reworking data access
+          and report processing.
+        </li>
+        <li>
+          Designed a gRPC and Protocol Buffers service architecture for new gaming features, including PHP and React
+          clients, shared abstractions, and PHAR packaging for production.
+        </li>
+        <li>
+          Built fraud monitoring that scored gameplay activity, balances, wins and losses, active days, and transaction
+          behavior to flag suspicious deposit and withdrawal patterns.
+        </li>
+        <li>Mentored 3 junior engineers on API development, debugging, code quality, and system design.</li>
+      </ul>
     ),
   },
   {
-    date: 'February 2023 - August 2023',
-    location: 'affiliate.com(Remote)',
-    title: 'Fullstack Developer',
+    date: 'February 2023 – August 2023',
+    company: 'Affiliate.com',
+    location: 'Remote',
+    title: 'Full Stack Developer (Contract)',
+    technologies: ['Node.js', 'tRPC', 'Prisma', 'React', 'Zod', 'GCS'],
     content: (
-      <p>
-        Changed PHP and Joomla based web system into Node.js, tRPC, React and Prisma new, improved and fast system with
-        very responsive design.
-      </p>
+      <ul>
+        <li>
+          Migrated a legacy PHP API to Node.js and tRPC across campaigns, creatives, line items, P&L, affiliates, and
+          dashboard functionality.
+        </li>
+        <li>
+          Reimplemented complex legacy SQL behavior in Prisma while keeping business rules and data consistent between
+          the legacy and new platforms running in parallel.
+        </li>
+        <li>
+          Reduced report generation time ~40% by moving generation off the backend and into a Google Cloud Storage
+          workflow.
+        </li>
+        <li>
+          Rebuilt API validation in Zod without changing existing application behavior, and wrote unit and integration
+          tests reaching ~85% coverage on migrated code.
+        </li>
+      </ul>
     ),
   },
   {
-    date: 'February 2019 - April 2021',
-    location: 'EagleLion Systems Technology',
-    title: 'FrontEnd Developer',
+    date: 'February 2021 – April 2022',
+    company: 'Eaglelion Systems Technology',
+    location: 'Addis Ababa, Ethiopia',
+    title: 'Frontend Developer',
+    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Payment APIs'],
     content: (
-      <p>
-        Design and Implement Payment Dashboards, Promotional Websites, Company Websites, Integrate Systems to Api,
-        Change Html And Javascript Templates to React Templates, Writing Testcase for Acceptance Testers.
-      </p>
-    ),
-  },
-  {
-    date: 'January 2019 - June 2019',
-    location: 'Ethiopian Orthodox Church,ICT Center',
-    title: 'Junior Fullstack Developer',
-    content: (
-      <p>
-        Convert Figma Designs to Ui and Integrate to Backend using ReactQL and GraphQL Mutation. Working on Elearning
-        websites using moodle and add performance the Existing websites.
-      </p>
-    ),
-  },
-  {
-    date: 'February 2018 - July 2019',
-    location: 'Ethernet',
-    title: 'Backend Developer',
-    content: (
-      <p>
-        I have been Testing Existing Systems as end User and List out Major Bugs for Rework, Developing Apis for
-        Different Volunteer Systems.
-      </p>
+      <ul>
+        <li>
+          Integrated Mastercard, Visa, Telebirr, and commercial bank payment APIs into products with 100K+ downloads and
+          more than 3 billion ETB in transaction volume.
+        </li>
+        <li>
+          Implemented payment workflows covering transaction states, callbacks, failures, retries, verification, and
+          reconciliation across external providers.
+        </li>
+        <li>
+          Replaced legacy SOAP integrations with REST APIs while keeping communication reliable against incomplete and
+          inconsistent provider documentation.
+        </li>
+        <li>
+          Raised the GTmetrix score from 45 to 97 and reduced page load times ~25% through code splitting, lazy loading,
+          and asset optimization.
+        </li>
+      </ul>
     ),
   },
 ];
@@ -321,29 +346,23 @@ export const experience: TimelineItem[] = [
  * Testimonial section
  */
 export const testimonial: TestimonialSection = {
-  imageSrc: testimonialImage,
   testimonials: [
     {
-      name: 'Dan Warner, AppLand Inc',
+      name: 'Dan Warner',
+      role: 'AppLand Inc',
       text: 'Yonas did a great job! I would work with him again on a larger project.',
-      image:
-        'https://www.upwork.com/profile-portraits/c1ef5lJdPX8B_DTfOEApW8C95Uk8Uuigz8wDm-4t4egEtli0qT6Q3PxVpuEIOeuJOW',
     },
     {
       name: 'Muly Oved',
-      text: 'Excellent freelancer, dedicated, hard worker, was joy to work with, and will love to work with him again',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
+      text: 'Excellent freelancer, dedicated, hard worker, was joy to work with, and will love to work with him again.',
     },
     {
       name: 'Mekidem Getaneh',
-      text: 'I have worked with Yonas for almost a year. He is a very good ReactJS developer with a diligent and patient personality. He goes above and beyond for solving a problem and to find optimal solutions and is well aquatinted with different libraries. I am sure anybody would find him very helpful and a delight to work with.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
+      text: 'I have worked with Yonas for almost a year. He is a very good ReactJS developer with a diligent and patient personality. He goes above and beyond for solving a problem and to find optimal solutions and is well acquainted with different libraries.',
     },
     {
       name: 'Kalvin',
-      text: 'Working with Yonas on the front-end development of our data analytics website was an outstanding experience. Yonas demonstrated exceptional expertise and creativity in bringing our vision to life with a clean, user-friendly interface that exceeded our expectations. His attention to detail, responsiveness to feedback, and proactive communication ensured a smooth and efficient development process. Yonas went above and beyond to implement innovative features that enhance user engagement and usability. We are incredibly impressed with the quality of his work and his dedication to delivering the best possible results. I highly recommend Yonas to anyone looking for a skilled and reliable front-end developer. His contribution has been invaluable, and we look forward to collaborating with him on future projects.',
-      image:
-        'https://www.upwork.com/profile-portraits/c1ef5lJdPX8B_DTfOEApW8C95Uk8Uuigz8wDm-4t4egEtli0qT6Q3PxVpuEIOeuJO',
+      text: 'Working with Yonas on the front-end development of our data analytics website was an outstanding experience. He demonstrated exceptional expertise and creativity, with attention to detail, responsiveness to feedback, and proactive communication. I highly recommend Yonas to anyone looking for a skilled and reliable engineer.',
     },
   ],
 };
@@ -351,10 +370,10 @@ export const testimonial: TestimonialSection = {
 /**
  * Contact section
  */
-
 export const contact: ContactSection = {
-  headerText: 'Get in touch.',
-  description: 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
+  headerText: 'Let’s work together.',
+  description:
+    'I am currently open to remote senior engineering roles and selected contract work. The fastest way to reach me is email.',
   items: [
     {
       type: ContactType.Email,
@@ -362,19 +381,24 @@ export const contact: ContactSection = {
       href: 'mailto:yonalem21@gmail.com',
     },
     {
-      type: ContactType.Location,
-      text: 'Addis Ababa, Ethiopia',
-      href: 'https://goo.gl/maps/4g8LnHQBKiywgAEd6?coh=178573&entry=tt',
+      type: ContactType.Phone,
+      text: '+251 936 972 697',
+      href: 'tel:+251936972697',
     },
     {
-      type: ContactType.Instagram,
-      text: '@its_yon_21',
-      href: 'https://www.instagram.com/its_yon_21/',
+      type: ContactType.Location,
+      text: 'Addis Ababa, Ethiopia',
+      href: 'https://www.google.com/maps/place/Addis+Ababa',
     },
     {
       type: ContactType.Github,
-      text: 'Yonas21',
+      text: 'github.com/Yonas21',
       href: 'https://github.com/Yonas21',
+    },
+    {
+      type: ContactType.LinkedIn,
+      text: 'linkedin.com/in/yonasalem21',
+      href: 'https://www.linkedin.com/in/yonasalem21/',
     },
   ],
 };

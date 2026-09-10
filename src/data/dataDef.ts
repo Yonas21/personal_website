@@ -21,16 +21,17 @@ export interface HomepageMeta {
  * Hero section
  */
 export interface Hero {
-  imageSrc: string;
   name: string;
+  title: string;
   description: JSX.Element;
   actions: HeroActionItem[];
 }
 
-interface HeroActionItem {
+export interface HeroActionItem {
   href: string;
   text: string;
   primary?: boolean;
+  download?: string;
   Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
 }
 
@@ -38,9 +39,10 @@ interface HeroActionItem {
  * About section
  */
 export interface About {
-  profileImageSrc?: string;
-  description: string;
+  profileImageSrc?: string | StaticImageData;
+  description: JSX.Element;
   aboutItems: AboutItem[];
+  stats: Stat[];
 }
 
 export interface AboutItem {
@@ -53,24 +55,16 @@ export interface AboutItem {
  * Stat section
  */
 export interface Stat {
-  title: string;
-  value: number;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
+  label: string;
+  value: string;
 }
 
 /**
  * Skills section
  */
-
-export interface Skill {
-  name: string;
-  level: number;
-  max?: number;
-}
-
 export interface SkillGroup {
   name: string;
-  skills: Skill[];
+  skills: string[];
 }
 
 /**
@@ -78,9 +72,12 @@ export interface SkillGroup {
  */
 export interface PortfolioItem {
   title: string;
+  subtitle: string;
   description: string;
-  url: string;
-  image: string | StaticImageData;
+  highlights?: string[];
+  url?: string;
+  image?: string | StaticImageData;
+  technologies: string[];
 }
 
 /**
@@ -88,8 +85,11 @@ export interface PortfolioItem {
  */
 export interface TimelineItem {
   date: string;
+  company: string;
   location: string;
   title: string;
+  href?: string;
+  technologies?: string[];
   content: JSX.Element;
 }
 
@@ -97,13 +97,12 @@ export interface TimelineItem {
  * Testimonial section
  */
 export interface TestimonialSection {
-  imageSrc?: string | StaticImageData;
   testimonials: Testimonial[];
 }
 
 export interface Testimonial {
-  image?: string;
   name: string;
+  role?: string;
   text: string;
 }
 
@@ -127,7 +126,7 @@ export const ContactType = {
   Instagram: 'Instagram',
 } as const;
 
-export type ContactType = typeof ContactType[keyof typeof ContactType];
+export type ContactType = (typeof ContactType)[keyof typeof ContactType];
 
 export interface ContactItem {
   type: ContactType;
