@@ -16,16 +16,28 @@ const Header = dynamic(() => import('../components/Sections/Header'), {ssr: fals
 
 const Home: FC = memo(() => {
   const {title, description} = homePageMeta;
+
   return (
     <Page description={description} title={title}>
-      <Header />
-      <Hero />
-      <About />
-      <Resume />
-      <Portfolio />
-      <Testimonials />
-      <Contact />
-      <Footer />
+      <div className="relative min-h-screen overflow-hidden bg-page">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-24 top-0 h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-3xl" />
+          <div className="absolute bottom-0 right-0 h-[22rem] w-[22rem] rounded-full bg-accent/5 blur-3xl" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgb(var(--color-fg)_/_0.04),_transparent_55%)]" />
+        </div>
+        <Header />
+        <div className="relative mx-auto min-h-screen max-w-content px-6 lg:flex lg:justify-between lg:gap-16 lg:px-12">
+          <Hero />
+          <div className="lg:w-[54%]">
+            <About />
+            <Resume />
+            <Portfolio />
+            <Testimonials />
+            <Contact />
+            <Footer />
+          </div>
+        </div>
+      </div>
     </Page>
   );
 });
