@@ -20,7 +20,34 @@
   }
 }
 
-/* Global styles */
+:root {
+  color-scheme: light;
+  --color-page: 244 239 228;
+  --color-elevated: 255 252 246;
+  --color-surface: 232 224 206;
+  --color-fg: 28 25 20;
+  --color-fg-muted: 74 68 58;
+  --color-fg-subtle: 111 104 92;
+  --color-line: 28 25 20;
+  --color-accent: 154 107 36;
+  --color-accent-hover: 122 82 24;
+  --color-accent-fg: 255 252 246;
+}
+
+.dark {
+  color-scheme: dark;
+  --color-page: 7 8 11;
+  --color-elevated: 11 13 18;
+  --color-surface: 18 21 28;
+  --color-fg: 244 241 234;
+  --color-fg-muted: 183 178 167;
+  --color-fg-subtle: 143 138 128;
+  --color-line: 255 255 255;
+  --color-accent: 212 164 90;
+  --color-accent-hover: 232 198 134;
+  --color-accent-fg: 7 8 11;
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,23 +56,39 @@
 html {
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
-  height: 100vh;
 }
 
 body {
   position: relative;
   width: 100%;
-  color: #444444;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif;
-  background-color: #fafafa;
+  min-height: 100vh;
+  color: rgb(var(--color-fg));
+  background-color: rgb(var(--color-page));
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
-td,
-th {
-  padding: 4px 8px 4px 4px;
-  text-align: left;
+::selection {
+  background: rgb(var(--color-accent) / 0.28);
+  color: rgb(var(--color-fg));
 }
 
-th {
-  font-weight: 600;
+a {
+  text-underline-offset: 0.22em;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--color-accent));
+  outline-offset: 3px;
+}
+
+.prose {
+  --tw-prose-body: rgb(var(--color-fg-muted));
+  --tw-prose-headings: rgb(var(--color-fg));
+  --tw-prose-lead: rgb(var(--color-fg-muted));
+  --tw-prose-links: rgb(var(--color-accent));
+  --tw-prose-bold: rgb(var(--color-fg));
+  --tw-prose-counters: rgb(var(--color-accent));
+  --tw-prose-bullets: rgb(var(--color-accent));
+  --tw-prose-quotes: rgb(var(--color-fg-muted));
+  --tw-prose-quote-borders: rgb(var(--color-accent));
 }
