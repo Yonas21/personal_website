@@ -1,11 +1,12 @@
 /* eslint-env node */
 module.exports = {
-  siteUrl: 'reactresume.com',
+  siteUrl: 'https://yonasalem.vercel.app',
   exclude: ['/404*', '/500*'],
+  generateIndexSitemap: false,
   transform: async (config, path) => {
     return {
       loc: path,
-      changefreq: config.changefreq,
+      changefreq: path === '/' ? 'weekly' : config.changefreq,
       priority: path === '/' ? 1 : config.priority,
       lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
     };

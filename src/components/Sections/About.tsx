@@ -10,12 +10,16 @@ const About: FC = memo(() => {
 
   return (
     <Section className="scroll-mt-28" sectionId={SectionId.About}>
-      <SectionHeading index="01" title="About" />
+      <SectionHeading index="01" title="About Yonas Alem" />
       <div className="flex flex-col gap-10">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
           {!!profileImageSrc && (
             <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl ring-1 ring-accent/30 sm:h-32 sm:w-32">
-              <Image alt="Yonas Alem" className="h-full w-full object-cover object-top" src={profileImageSrc} />
+              <Image
+                alt="Yonas Alem, senior software engineer in Addis Ababa"
+                className="h-full w-full object-cover object-top"
+                src={profileImageSrc}
+              />
             </div>
           )}
           <div className="space-y-4 text-base leading-relaxed text-fg-muted">{description}</div>

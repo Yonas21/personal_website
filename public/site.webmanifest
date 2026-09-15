@@ -1,8 +1,11 @@
 {
   "name": "Yonas Alem",
   "short_name": "Yonas Alem",
+  "description": "Senior software engineer in Addis Ababa. Official site of Yonas Alem.",
+  "start_url": "/",
   "icons": [
-    {"src": "/favicon.ico", "type": "image/x-icon", "sizes": "48x48"}
+    {"src": "/favicon.ico", "type": "image/x-icon", "sizes": "48x48"},
+    {"src": "/yonas-alem.jpg", "type": "image/jpeg", "sizes": "413x531"}
   ],
   "theme_color": "#07080b",
   "background_color": "#07080b",

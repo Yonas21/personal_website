@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Disallow: /404
+Disallow: /500
+
+Sitemap: https://yonasalem.vercel.app/sitemap.xml

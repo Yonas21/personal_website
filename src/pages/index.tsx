@@ -26,7 +26,7 @@ const Home: FC = memo(() => {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgb(var(--color-fg)_/_0.04),_transparent_55%)]" />
         </div>
         <Header />
-        <div className="relative mx-auto min-h-screen max-w-content px-6 lg:flex lg:justify-between lg:gap-16 lg:px-12">
+        <main className="relative mx-auto min-h-screen max-w-content px-6 lg:flex lg:justify-between lg:gap-16 lg:px-12">
           <Hero />
           <div className="lg:w-[54%]">
             <About />
@@ -36,7 +36,7 @@ const Home: FC = memo(() => {
             <Contact />
             <Footer />
           </div>
-        </div>
+        </main>
       </div>
     </Page>
   );

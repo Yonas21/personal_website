@@ -1,4 +1,10 @@
-import {AcademicCapIcon, ArrowDownTrayIcon, BuildingOffice2Icon, MapIcon, SparklesIcon} from '@heroicons/react/24/outline';
+import {
+  AcademicCapIcon,
+  ArrowDownTrayIcon,
+  BuildingOffice2Icon,
+  MapIcon,
+  SparklesIcon,
+} from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
@@ -22,9 +28,9 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Yonas Alem — Senior Software Engineer',
+  title: 'Yonas Alem | Senior Software Engineer',
   description:
-    'Senior software engineer in Addis Ababa, open to remote. Backend and full stack systems across payments, gaming, ecommerce, advertising, and government services.',
+    'Official website of Yonas Alem, senior software engineer in Addis Ababa, Ethiopia. Backend and full stack systems across payments, gaming, ecommerce, advertising, and AWS. Open to remote roles.',
 };
 
 /**
@@ -51,8 +57,8 @@ export const heroData: Hero = {
   title: 'Senior Software Engineer',
   description: (
     <>
-      I build and fix production systems across payments, gaming, ecommerce, advertising, and government services —
-      from PostgreSQL and backend services through React, AWS, and the last mile of production debugging.
+      I build and fix production systems across payments, gaming, ecommerce, advertising, and government services — from
+      PostgreSQL and backend services through React, AWS, and the last mile of production debugging.
     </>
   ),
   actions: [
@@ -79,10 +85,10 @@ export const aboutData: About = {
   description: (
     <>
       <p>
-        I am a senior software engineer with 5+ years shipping production software where reliability, cost, and
-        correctness actually matter. I have cut infrastructure spend by about 35% (roughly $100K a year), improved
-        platform performance around 30%, and integrated payment rails that have handled more than 3 billion ETB in
-        transaction volume.
+        I am Yonas Alem, a senior software engineer in Addis Ababa with 5+ years shipping production software where
+        reliability, cost, and correctness actually matter. I have cut infrastructure spend by about 35% (roughly $100K
+        a year), improved platform performance around 30%, and integrated payment rails that have handled more than 3
+        billion ETB in transaction volume.
       </p>
       <p>
         Day to day I work across the stack: schema design, APIs, React frontends, AWS infrastructure, and the kind of
@@ -127,7 +133,16 @@ export const skills: SkillGroup[] = [
   },
   {
     name: 'Cloud & DevOps',
-    skills: ['AWS (EC2, S3, Lambda)', 'Docker', 'Kubernetes', 'Nginx', 'GitHub Actions', 'CI/CD', 'Datadog', 'CloudWatch'],
+    skills: [
+      'AWS (EC2, S3, Lambda)',
+      'Docker',
+      'Kubernetes',
+      'Nginx',
+      'GitHub Actions',
+      'CI/CD',
+      'Datadog',
+      'CloudWatch',
+    ],
   },
   {
     name: 'Integrations',
@@ -223,9 +238,7 @@ export const experience: TimelineItem[] = [
     technologies: ['Node.js', 'PostgreSQL', 'BullMQ', 'Redis', 'React', 'Amazon SP-API'],
     content: (
       <ul>
-        <li>
-          Amazon seller analytics covering marketplace analytics, FBA, finance, PPC, and inventory.
-        </li>
+        <li>Amazon seller analytics covering marketplace analytics, FBA, finance, PPC, and inventory.</li>
         <li>
           Diagnosed a production failure where recurring sync jobs silently stopped after each deploy; traced it through
           BullMQ job state, ioredis connections, Node.js process lifecycle, and Railway scheduler behavior, then added
@@ -262,14 +275,15 @@ export const experience: TimelineItem[] = [
     technologies: ['PostgreSQL', 'gRPC', 'PHP', 'React', 'AWS', 'Datadog'],
     content: (
       <ul>
-        <li>
-          Owned a production real-money gaming platform end to end: loyalty, payouts, fraud, and reporting.
-        </li>
+        <li>Owned a production real-money gaming platform end to end: loyalty, payouts, fraud, and reporting.</li>
         <li>
           Improved platform performance ~30% through database indexing, read/write separation, system-wide caching,
           pagination, transactional operations, and a redesign of the status-checking system.
         </li>
-        <li>Reduced infrastructure costs ~35%, an estimated $100K per year, through database, caching, and resource optimization.</li>
+        <li>
+          Reduced infrastructure costs ~35%, an estimated $100K per year, through database, caching, and resource
+          optimization.
+        </li>
         <li>
           Cut report generation on ~1 million record datasets from 2 hours to under 30 minutes by reworking data access
           and report processing.
