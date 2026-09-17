@@ -5,7 +5,7 @@ import {TimelineItem} from '../../../data/dataDef';
 import TechPills from '../../TechPills';
 
 const TimelineItemView: FC<{item: TimelineItem}> = memo(({item}) => {
-  const {title, date, company, location, content, href, technologies} = item;
+  const {title, date, company, location, note, content, href, technologies} = item;
 
   return (
     <article className="group relative rounded-2xl border border-transparent p-5 transition-colors hover:border-line/10 hover:bg-surface/40">
@@ -28,6 +28,7 @@ const TimelineItemView: FC<{item: TimelineItem}> = memo(({item}) => {
         {company}
         <span className="text-fg-subtle"> · {location}</span>
       </p>
+      {note && <p className="mt-1 font-mono text-[11px] tracking-wide text-accent">{note}</p>}
       <div className="prose prose-sm mt-4 max-w-none text-fg-muted prose-p:leading-relaxed prose-li:marker:text-accent">
         {content}
       </div>

@@ -14,7 +14,7 @@ const navItems = [
 ] as const;
 
 const Hero: FC = memo(() => {
-  const {name, title, description, actions} = heroData;
+  const {name, title, detail, description, actions} = heroData;
   const [currentSection, setCurrentSection] = useState<SectionId | null>(SectionId.About);
   const navSections = useMemo(() => navItems.map(item => item.id), []);
 
@@ -32,6 +32,7 @@ const Hero: FC = memo(() => {
         <p className="font-mono text-xs tracking-[0.28em] text-accent">BACKEND & FULL STACK SYSTEMS</p>
         <h1 className="mt-4 font-serif text-5xl leading-tight text-fg sm:text-6xl">{name}</h1>
         <p className="mt-3 text-lg text-fg-muted">{title}</p>
+        {detail && <p className="mt-2 font-mono text-xs tracking-wide text-fg-subtle">{detail}</p>}
         <p className="mt-6 max-w-md text-base leading-relaxed text-fg-muted">{description}</p>
         <div className="mt-8 flex flex-wrap gap-3">
           {actions.map(({href, text, primary, download, Icon}) => (

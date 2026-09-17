@@ -1,13 +1,6 @@
-import {
-  AcademicCapIcon,
-  ArrowDownTrayIcon,
-  BuildingOffice2Icon,
-  MapIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline';
+import {ArrowDownTrayIcon, BuildingOffice2Icon, ClockIcon, MapIcon, SparklesIcon} from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
-import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import porfolioImage4 from '../images/portfolio/portfolio-4.webp';
 import profilepic from '../images/profilepic.jpg';
@@ -28,9 +21,9 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Yonas Alem | Senior Software Engineer',
+  title: 'Yonas Alem | Senior Full Stack Engineer',
   description:
-    'Official website of Yonas Alem, senior software engineer in Addis Ababa, Ethiopia. Backend and full stack systems across payments, gaming, ecommerce, advertising, and AWS. Open to remote roles.',
+    'Yonas Alem is a senior full stack engineer in Addis Ababa (EAT, UTC+3). Node.js, PostgreSQL, and React. Production work across marketplace analytics, gaming, and payments. Open to remote roles.',
 };
 
 /**
@@ -54,11 +47,12 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   name: 'Yonas Alem',
-  title: 'Senior Software Engineer',
+  title: 'Senior Full Stack Engineer',
+  detail: 'Node.js · PostgreSQL · React · Remote from Addis Ababa, EAT (UTC+3)',
   description: (
     <>
-      I build and fix production systems across payments, gaming, ecommerce, advertising, and government services — from
-      PostgreSQL and backend services through React, AWS, and the last mile of production debugging.
+      I take production systems apart — marketplace analytics, real-money gaming, payments — and leave them cheaper,
+      faster, and less likely to fail silently. Open to remote senior full-stack roles.
     </>
   ),
   actions: [
@@ -85,15 +79,16 @@ export const aboutData: About = {
   description: (
     <>
       <p>
-        I am Yonas Alem, a senior software engineer in Addis Ababa with 5+ years shipping production software where
-        reliability, cost, and correctness actually matter. I have cut infrastructure spend by about 35% (roughly $100K
-        a year), improved platform performance around 30%, and integrated payment rails that have handled more than 3
-        billion ETB in transaction volume.
+        I am Yonas Alem, a senior full stack engineer in Addis Ababa. I work in Node.js, PostgreSQL, and React, usually
+        on systems where a silent failure costs real money. I have cut infrastructure spend by about 35% (roughly $100K
+        a year), improved platform performance around 30%, and shipped payment integrations used by products that have
+        handled more than 3 billion ETB in transaction volume.
       </p>
       <p>
-        Day to day I work across the stack: schema design, APIs, React frontends, AWS infrastructure, and the kind of
-        production debugging that starts with a silent failure and ends with a safer system. I am based in Addis Ababa
-        and open to remote roles.
+        Day to day that means schema design, APIs, React frontends, AWS, and the debugging that starts with a job that
+        never ran. Production code lives in private employer repos; the case studies on this site are the public
+        record, and I will walk through the systems on a hiring call. Available as a remote hire from Ethiopia (EAT,
+        UTC+3).
       </p>
     </>
   ),
@@ -101,13 +96,13 @@ export const aboutData: About = {
     {value: '5+', label: 'Years in production'},
     {value: '35%', label: 'Infra cost reduced'},
     {value: '~30%', label: 'Performance gain'},
-    {value: '3B+', label: 'ETB payment volume'},
+    {value: '3B+', label: 'ETB on rails I integrated'},
   ],
   aboutItems: [
     {label: 'Location', text: 'Addis Ababa, Ethiopia', Icon: MapIcon},
-    {label: 'Availability', text: 'Open to remote', Icon: BuildingOffice2Icon},
+    {label: 'Timezone', text: 'EAT (UTC+3)', Icon: ClockIcon},
+    {label: 'Availability', text: 'Remote senior full-stack', Icon: BuildingOffice2Icon},
     {label: 'Currently', text: 'TPK Synergy Limited', Icon: SparklesIcon},
-    {label: 'Study', text: 'Addis Ababa University', Icon: AcademicCapIcon},
   ],
 };
 
@@ -117,36 +112,27 @@ export const aboutData: About = {
 export const skills: SkillGroup[] = [
   {
     name: 'Languages',
-    skills: ['TypeScript', 'JavaScript', 'Go', 'Python', 'PHP', 'SQL'],
+    skills: ['TypeScript', 'JavaScript', 'PHP', 'SQL'],
   },
   {
     name: 'Backend',
-    skills: ['Node.js', 'Express', 'FastAPI', 'Prisma', 'gRPC', 'tRPC', 'REST', 'BullMQ'],
+    skills: ['Node.js', 'Prisma', 'gRPC', 'tRPC', 'REST', 'BullMQ'],
   },
   {
     name: 'Data',
-    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis'],
+    skills: ['PostgreSQL', 'Redis'],
   },
   {
     name: 'Frontend',
-    skills: ['React', 'Next.js', 'Tailwind CSS', 'Material UI'],
+    skills: ['React', 'Next.js', 'Tailwind CSS'],
   },
   {
-    name: 'Cloud & DevOps',
-    skills: [
-      'AWS (EC2, S3, Lambda)',
-      'Docker',
-      'Kubernetes',
-      'Nginx',
-      'GitHub Actions',
-      'CI/CD',
-      'Datadog',
-      'CloudWatch',
-    ],
+    name: 'Cloud',
+    skills: ['AWS', 'Docker', 'GitHub Actions', 'Datadog'],
   },
   {
     name: 'Integrations',
-    skills: ['Amazon SP-API', 'Amazon Ads API', 'Mastercard', 'Visa', 'Telebirr', 'OAuth 2.0', 'OpenAI', 'Gemini'],
+    skills: ['Amazon SP-API', 'Amazon Ads API', 'Mastercard', 'Visa', 'Telebirr', 'OAuth 2.0'],
   },
 ];
 
@@ -155,59 +141,50 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Amazon seller analytics platform',
+    title: 'Keeping 17 cron jobs alive after deploy',
     subtitle: 'TPK Synergy Limited',
+    kind: 'Reliability case study · private production system',
+    problem:
+      'After every deploy, recurring Amazon sync jobs died quietly. Dashboards looked fine until the data was a day old.',
     description:
-      'Marketplace analytics covering FBA, finance, PPC, and inventory. I own production reliability, Amazon integrations, and the data path behind the dashboard.',
-    highlights: [
-      'Traced recurring sync jobs that silently died after every deploy, then added explicit shutdown handling across 17 cron processes.',
-      'Integrated Amazon SP-API and Ads authentication end to end, including OAuth, LWA token exchange, and encrypted credential storage.',
-      'Extended the platform to UK and EU marketplaces with VAT-aware margins and region-specific marketplace logic.',
-    ],
-    technologies: ['Node.js', 'PostgreSQL', 'BullMQ', 'Redis', 'Amazon SP-API', 'Railway'],
+      'I traced the failure through BullMQ job state, ioredis connections, Node process shutdown, and the Railway scheduler, then put explicit shutdown handling on 17 cron processes so a deploy could not leave work stranded.',
+    result: 'Sync jobs survive deploys instead of going silent until a seller notices bad numbers.',
+    technologies: ['Node.js', 'BullMQ', 'Redis', 'Railway'],
   },
   {
-    title: 'Real-money gaming platform',
+    title: 'Reports that used to take two hours',
     subtitle: 'Mereb Technologies',
+    kind: 'Performance case study · private production system',
+    problem: 'Reporting on about a million records ran for two hours and blocked people who needed the numbers.',
     description:
-      'End-to-end ownership of a production gaming platform: loyalty, payouts, fraud, reporting, and the infrastructure underneath it.',
-    highlights: [
-      'Improved platform performance about 30% through indexing, read/write separation, caching, pagination, and a redesigned status-checking system.',
-      'Reduced infrastructure costs about 35%, an estimated $100K per year.',
-      'Cut report generation on ~1 million record datasets from 2 hours to under 30 minutes.',
-    ],
-    technologies: ['PHP', 'gRPC', 'PostgreSQL', 'Redis', 'AWS', 'Datadog', 'React'],
-  },
-  {
-    title: 'Government constituent platform',
-    subtitle: 'Autobridge Systems',
-    description:
-      'Backend for complaints, document approvals, and internal communication, with access control and encryption around sensitive constituent data.',
-    highlights: [
-      'Traced multi-minute slowdowns on incoming email records to missing indexes and improved those operations by more than 10x.',
-      'Integrated AI services for threat detection and message classification in communication workflows.',
-    ],
-    technologies: ['PostgreSQL', 'Node.js', 'Encryption', 'AI classification'],
-  },
-  {
-    title: 'Upplai',
-    subtitle: 'AI-powered resume platform',
-    description:
-      'Resume generation, cover letters, and ATS feedback using OpenAI and Gemini, with scoring, document preview, and per-resume cost tracking.',
-    highlights: [
-      'Supported 500+ user profiles across generation and feedback workflows.',
-      'Made model usage and spend visible per generation so cost did not disappear into a shared bill.',
-    ],
-    technologies: ['React', 'Node.js', 'OpenAI', 'Gemini'],
+      'I moved the expensive work out of ad-hoc application paths: indexing, read/write separation, caching, and a redesigned status-checking flow so the database did the aggregation instead of the app.',
+    result:
+      'Same reports, under 30 minutes. Platform performance up about 30%; infra cost down about 35% (~$100K/year).',
+    technologies: ['PostgreSQL', 'PHP', 'Redis', 'AWS'],
   },
   {
     title: 'Nedaj payments',
     subtitle: 'Eaglelion Systems Technology',
+    kind: 'Shipped product',
+    problem:
+      'A fuel-purchase app had to talk to Mastercard, Visa, Telebirr, and commercial banks, with incomplete provider docs and a SOAP past.',
     description:
-      'Payment workflows for a fuel-purchase product used by 100K+ downloads, integrating Mastercard, Visa, Telebirr, and commercial bank APIs.',
+      'I built the payment workflows on the client: states, callbacks, failures, retries, verification, and REST in place of SOAP, on a product used by 100K+ downloads.',
+    result: 'Payment rails that hold up in production. Live on Google Play.',
     url: 'https://play.google.com/store/apps/details?id=com.eaglelionsystems.nedaj',
+    urlLabel: 'Google Play',
     image: porfolioImage4,
     technologies: ['React', 'Next.js', 'REST', 'Payment APIs'],
+  },
+  {
+    title: 'Email records that took minutes',
+    subtitle: 'Autobridge Systems · contract',
+    kind: 'Contract case study · private government system',
+    problem: 'Incoming email records on a constituent platform took minutes to load. Staff sat on the screen.',
+    description:
+      'I traced the delay to missing indexes on a PostgreSQL path, then added the indexes and tightened the query. Sensitive constituent data stayed behind access control and encryption.',
+    result: 'Those operations improved by more than 10x.',
+    technologies: ['PostgreSQL', 'Node.js', 'Encryption'],
   },
 ];
 
@@ -223,7 +200,7 @@ export const education: TimelineItem[] = [
     content: (
       <p>
         Undergraduate work in data structures, software lifecycle and architecture, web and mobile development, and
-        internet security. AWS Certified Cloud Practitioner.
+        internet security.
       </p>
     ),
   },
@@ -305,6 +282,7 @@ export const experience: TimelineItem[] = [
     company: 'Affiliate.com',
     location: 'Remote',
     title: 'Full Stack Developer (Contract)',
+    note: 'Contract alongside Mereb Technologies',
     technologies: ['Node.js', 'tRPC', 'Prisma', 'React', 'Zod', 'GCS'],
     content: (
       <ul>
@@ -328,16 +306,38 @@ export const experience: TimelineItem[] = [
     ),
   },
   {
+    date: 'Contract',
+    company: 'Autobridge Systems',
+    location: 'Addis Ababa, Ethiopia',
+    title: 'Backend Engineer (Contract)',
+    note: 'Government constituent platform',
+    technologies: ['PostgreSQL', 'Node.js', 'Encryption'],
+    content: (
+      <ul>
+        <li>
+          Backend for complaints, document approvals, and internal communication, with access control and encryption
+          around sensitive constituent data.
+        </li>
+        <li>
+          Traced multi-minute slowdowns on incoming email records to missing indexes and improved those operations by
+          more than 10x.
+        </li>
+        <li>Integrated AI services for threat detection and message classification in communication workflows.</li>
+      </ul>
+    ),
+  },
+  {
     date: 'February 2021 – April 2022',
     company: 'Eaglelion Systems Technology',
     location: 'Addis Ababa, Ethiopia',
     title: 'Frontend Developer',
+    href: 'https://play.google.com/store/apps/details?id=com.eaglelionsystems.nedaj',
     technologies: ['React', 'Next.js', 'Tailwind CSS', 'Payment APIs'],
     content: (
       <ul>
         <li>
-          Integrated Mastercard, Visa, Telebirr, and commercial bank payment APIs into products with 100K+ downloads and
-          more than 3 billion ETB in transaction volume.
+          Integrated Mastercard, Visa, Telebirr, and commercial bank payment APIs on the client of products that have
+          handled more than 3 billion ETB and 100K+ downloads.
         </li>
         <li>
           Implemented payment workflows covering transaction states, callbacks, failures, retries, verification, and
@@ -354,6 +354,21 @@ export const experience: TimelineItem[] = [
       </ul>
     ),
   },
+  {
+    date: 'Side project',
+    company: 'Upplai',
+    location: 'Remote',
+    title: 'Full Stack Engineer',
+    note: 'AI resume platform · personal product',
+    technologies: ['React', 'Node.js', 'OpenAI', 'Gemini'],
+    content: (
+      <ul>
+        <li>Resume generation, cover letters, and ATS feedback using OpenAI and Gemini.</li>
+        <li>Supported 500+ user profiles across generation and feedback workflows.</li>
+        <li>Tracked model usage and spend per generation so AI cost did not disappear into a shared bill.</li>
+      </ul>
+    ),
+  },
 ];
 
 /**
@@ -362,20 +377,13 @@ export const experience: TimelineItem[] = [
 export const testimonial: TestimonialSection = {
   testimonials: [
     {
-      name: 'Dan Warner',
-      role: 'AppLand Inc',
-      text: 'Yonas did a great job! I would work with him again on a larger project.',
-    },
-    {
-      name: 'Muly Oved',
-      text: 'Excellent freelancer, dedicated, hard worker, was joy to work with, and will love to work with him again.',
-    },
-    {
       name: 'Mekidem Getaneh',
+      role: 'Engineering colleague · ~1 year working together',
       text: 'I have worked with Yonas for almost a year. He is a very good ReactJS developer with a diligent and patient personality. He goes above and beyond for solving a problem and to find optimal solutions and is well acquainted with different libraries.',
     },
     {
       name: 'Kalvin',
+      role: 'Client · data analytics frontend',
       text: 'Working with Yonas on the front-end development of our data analytics website was an outstanding experience. He demonstrated exceptional expertise and creativity, with attention to detail, responsiveness to feedback, and proactive communication. I highly recommend Yonas to anyone looking for a skilled and reliable engineer.',
     },
   ],
@@ -387,7 +395,7 @@ export const testimonial: TestimonialSection = {
 export const contact: ContactSection = {
   headerText: 'Let’s work together.',
   description:
-    'I am currently open to remote senior engineering roles and selected contract work. The fastest way to reach me is email.',
+    'Open to remote senior full-stack roles. I work from Addis Ababa, Ethiopia (EAT, UTC+3). Email is the fastest way to reach me. Production work is private; I can walk through it on a screening call.',
   items: [
     {
       type: ContactType.Email,
@@ -423,5 +431,4 @@ export const contact: ContactSection = {
 export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/Yonas21'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/yonasalem21/'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/its_yon_21/'},
 ];

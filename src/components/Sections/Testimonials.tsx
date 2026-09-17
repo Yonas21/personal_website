@@ -15,7 +15,7 @@ const Testimonials: FC = memo(() => {
 
   return (
     <Section className="scroll-mt-28" sectionId={SectionId.Testimonials}>
-      <SectionHeading index="04" title="Kind words" />
+      <SectionHeading index="04" title="References" />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {testimonials.map((item, index) => (
           <TestimonialCard key={`${item.name}-${index}`} testimonial={item} />

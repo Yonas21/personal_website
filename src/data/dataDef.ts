@@ -24,6 +24,7 @@ export interface HomepageMeta {
 export interface Hero {
   name: string;
   title: string;
+  detail?: string;
   description: JSX.Element;
   actions: HeroActionItem[];
 }
@@ -74,9 +75,13 @@ export interface SkillGroup {
 export interface PortfolioItem {
   title: string;
   subtitle: string;
+  kind?: string;
+  problem?: string;
   description: string;
+  result?: string;
   highlights?: string[];
   url?: string;
+  urlLabel?: string;
   image?: string | StaticImageData;
   technologies: string[];
 }
@@ -89,6 +94,7 @@ export interface TimelineItem {
   company: string;
   location: string;
   title: string;
+  note?: string;
   href?: string;
   technologies?: string[];
   content: JSX.Element;
